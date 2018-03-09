@@ -1,2 +1,2 @@
 # website
-<a href="laytonwright.com">laytonwright.com</a>
+<a href="http://laytonwright.com">laytonwright.com</a>
