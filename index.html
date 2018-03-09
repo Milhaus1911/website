@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Layton Wright</title>
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<meta charset="utf-8">
+	<meta name="google-site-verification" content="tcHNzLOVIIGdGMLSIWhIecfBZ8ziChG3abuqaxVHaWM" />
+	<link href="https://fonts.googleapis.com/css?family=Sumana:700" rel="stylesheet">
+	<style>
+		body {
+			background-color: black;
+		}
+		h1 {
+			font-family: "Sumana", Serif;
+			font-size: 10vw;
+			color: white;
+			text-align: center;
+			margin-top: 7%;	
+		}
+		p {
+			font-family: "Sumana", Serif;
+			font-size: 14px;
+			text-align: center;
+			color: white;
+		}
+		a:link {
+			color: white;
+		}
+		a:visited {
+			color: white;
+		}
+		a:hover {
+			color: gray;
+		}
+		a:active {
+			color: white;
+		}
+		footer {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			text-align: center;
+			z-index: -1;
+		}
+	</style>
+</head>
+<body>
+
+	<h1 id="name" onmousemove="colourChange(event)">Layto Wrighto</h1>
+	<footer>
+		<p><a href="https://twitter.com/laytso">Twitter</a> <a href="https://github.com/Milhaus1911">Github</a></p>
+	</footer>
+</body>
+<script>
+	function colourChange(event){
+		var x = map(event.clientX, 0, window.innerWidth, 0, 0.1);
+		makeColorGradient(x, x, x, 0, 2, 4);
+	}
+
+	function map(value, start1, stop1, start2, stop2){
+		return (start2 + (stop2 - start2) * ((value - start1) / (stop1 - start1)));
+	}
+
+	function makeColorGradient(frequency1, frequency2, frequency3, phase1, phase2, phase3, center, width, len){
+		if (center == undefined)   center = 128;
+		if (width == undefined)    width = 127;
+		if (len == undefined)      len = 50;
+
+		for (var i = 0; i < len; ++i){
+		   var red = Math.sin(frequency1*i + phase1) * width + center;
+		   var grn = Math.sin(frequency2*i + phase2) * width + center;
+		   var blu = Math.sin(frequency3*i + phase3) * width + center;
+		   document.getElementById("name").style.color=RGB2Color(red,grn,blu);
+		}
+	 }
+	 
+	function RGB2Color(r,g,b){
+		return 'rgb(' + Math.round(r) + ',' + Math.round(g) + ',' + Math.round(b) + ')';
+	}
+</script>
+</html> 
